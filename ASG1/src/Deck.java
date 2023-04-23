@@ -4,23 +4,44 @@ public class Deck {
 	private ArrayList<Card> cards;
 	public Deck() {
 		cards=new ArrayList<Card>();
-		String[]suits= {"Heart","Diamond","Spade","Club"};
-		for (int i=0;i<suits.length;i++) {
-			String suit=suits[i];
-			Card card = new Card(suit,"Ace",1);
+		// String[]suits= {"Heart","Diamond","Spade","Club"};
+		// for (int i=0;i<suits.length;i++) {
+		// 	String suit=suits[i];
+		// 	// Card card = new Card(suit,"Ace",1);
+		// 	cards.add(card);
+		// 	for(int n=2;n<=10;n++) {
+		// 		Card acard=new Card(suit,n+"",n);
+		// 		cards.add(acard);
+				
+		// 	}
+		// 	Card jackCard= new Card(suit,"Jack",10);
+		// 	cards.add(jackCard);
+		// 	Card queenCard= new Card(suit,"Queen",10);
+		// 	cards.add(queenCard);
+		// 	Card kingCard= new Card(suit,"King",10);
+		// 	cards.add(kingCard);}
+		// }
+
+		String[] suits = {"Heart","Diamond","Spade","Club"};
+		int[] suitValue = {3, 1, 4, 2};
+
+		for(int i = 0; i < suits.length; i++){
+			String suit = suits[i];
+			int suitValueInt = suitValue[i];
+			Card card = new Card(suit, suitValueInt, "Ace",1, 1);
 			cards.add(card);
 			for(int n=2;n<=10;n++) {
-				Card acard=new Card(suit,n+"",n);
+				Card acard=new Card(suit, suitValueInt, n+"", n, n);
 				cards.add(acard);
-				
 			}
-			Card jackCard= new Card(suit,"Jack",10);
-			cards.add(jackCard);
-			Card queenCard= new Card(suit,"Queen",10);
-			cards.add(queenCard);
-			Card kingCard= new Card(suit,"King",10);
-			cards.add(kingCard);}
+			Card jack = new Card(suit, suitValueInt, "Jack", 10, 10);
+			Card queen = new Card(suit, suitValueInt, "Queen", 10, 10);
+			Card king = new Card(suit, suitValueInt, "King", 10, 10);
+			cards.add(jack);
+			cards.add(queen);
+			cards.add(king);
 		}
+	}
 		
 		
 		public void shuffle() {
@@ -55,29 +76,32 @@ public class Deck {
 	
 	public static void main(String[] args) {
 
-		Deck deck=new Deck();
-		deck.shuffle();
-		deck.showCards();
-		Card card1=deck.dealCard();
-		Card card2=deck.dealCard();
-		Card card3=deck.dealCard();
-		ArrayList<Card>cards=new ArrayList<Card>();
-		cards.add(card1);
-		cards.add(card2);
-		cards.add(card3);
-		deck.appendCard(cards);
-		System.out.println();
-		deck.showCards();
-		System.out.println();
-		deck.showCards();
-		System.out.println();
-		System.out.println(card1);
-		System.out.println(card2);
-		System.out.println(card3);
-		deck.appendCard(card1);
-		deck.appendCard(card2);
-		deck.appendCard(card3);
-		System.out.println();
+		// Deck deck=new Deck();
+		// deck.shuffle();
+		// deck.showCards();
+		// Card card1=deck.dealCard();
+		// Card card2=deck.dealCard();
+		// Card card3=deck.dealCard();
+		// ArrayList<Card>cards=new ArrayList<Card>();
+		// cards.add(card1);
+		// cards.add(card2);
+		// cards.add(card3);
+		// deck.appendCard(cards);
+		// System.out.println();
+		// deck.showCards();
+		// System.out.println();
+		// deck.showCards();
+		// System.out.println();
+		// System.out.println(card1);
+		// System.out.println(card2);
+		// System.out.println(card3);
+		// deck.appendCard(card1);
+		// deck.appendCard(card2);
+		// deck.appendCard(card3);
+		// System.out.println();
+		// deck.showCards();
+
+		Deck deck = new Deck();
 		deck.showCards();
 			
 	}

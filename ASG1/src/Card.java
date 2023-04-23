@@ -1,12 +1,16 @@
 
 public class Card {
 	    private String suit;
-	    private String name;
-	    private int value;
+		public int suitValue;
+		private String name;
+		public int nameValue;
+	    public int value;
 
-	    public Card(String suit, String name, int value) {
+	    public Card(String suit, int suitValue, String name, int nameValue, int value) {
 	        this.suit = suit;
-	        this.name = name;
+			this.suitValue = suitValue;
+			this.name = name;
+			this.nameValue = nameValue;
 	        this.value = value;
 	    }
 
@@ -19,9 +23,9 @@ public class Card {
 	        return "<" + suit + " " + name + ">";
 	    }
 
-	    public static void main(String[] args) {
-	        Card card = new Card("Heart", "Ace", 1);
-	        System.out.println(card);
-	    }
+	    // public static void main(String[] args) {
+	    //     // Card card = new Card("Heart", "Ace", 1);
+	    //     // System.out.println(card);
+	    // }
 	}
 
