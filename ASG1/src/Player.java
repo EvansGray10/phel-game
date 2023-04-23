@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Player extends User {
 
-    private int chips;
+    protected int chips;
     protected ArrayList<Card> cardsOnHand;
 
     public Player(String loginName, String password, int chips) {
@@ -16,12 +16,13 @@ public class Player extends User {
     }
 
     public void showCardsOnHand() {
-
         System.out.println(getLoginName());
+        int sum = 0;
         for (Card card : this.cardsOnHand) {
             System.out.println(card + " ");
-
+            sum += card.value;
         }
+        System.out.println("Value: " + sum);
     }
 
     public int getChips() {
@@ -35,8 +36,7 @@ public class Player extends User {
         }
         this.chips += amount;
     }
-    
-   
+
     public int getTotalCardValue() {
         int totalValue = 0;
         for (Card card : cardsOnHand) {
@@ -44,6 +44,12 @@ public class Player extends User {
 
         }
         return totalValue;
+    }
+    public int getcardValue(int index){
+        int cardNameValue = cardsOnHand.get(index).nameValue;
+        int cardSuitValue = cardsOnHand.get(index).suitValue;
+        int sum = cardNameValue + cardSuitValue;
+        return sum;
     }
 
     public void showTotalValue() {
@@ -62,12 +68,12 @@ public class Player extends User {
         player.showCardsOnHand();
         player.showTotalValue();
 
-       
         System.out.println(player.getChips());
         player.addChips(20);
         System.out.println(player.getChips());
     }
 }
+
 
 	
 	class IncorrectPasswordException extends Exception {
